@@ -16,6 +16,6 @@ public class UpdateResponseHandler implements ResponseHandler {
         } else if(updateCommandResponse.getStatusCode() == StatusCode._404_NOT_FOUND){
             output  += "Ошибка: ";
         }
-        return output + updateCommandResponse.getMessage();
+        return (output + updateCommandResponse.getMessage()).trim();
     }
 }

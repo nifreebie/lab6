@@ -14,7 +14,7 @@ public class AddResponseHandler implements ResponseHandler{
             output += "Успешно:";
 
         }
-        return output + addCommandResponse.getMessage();
+        return (output + addCommandResponse.getMessage()).trim();
 
     }
 }

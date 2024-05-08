@@ -22,6 +22,6 @@ public class ExecuteScriptResponseHandler implements ResponseHandler{
                 throw new RuntimeException(e);
             }
         }
-        return output;
+        return output.trim();
     }
 }

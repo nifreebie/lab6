@@ -16,6 +16,6 @@ public class RemoveByIdResponseHandler implements ResponseHandler{
         } else if(removeByIdResponse.getStatusCode() == StatusCode._404_NOT_FOUND){
             output  += "Ошибка: ";
         }
-        return output + removeByIdResponse.getMessage();
+        return (output + removeByIdResponse.getMessage()).trim();
     }
 }

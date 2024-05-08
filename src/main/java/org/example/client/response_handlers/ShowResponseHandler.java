@@ -19,6 +19,6 @@ public class ShowResponseHandler implements ResponseHandler{
                 output = output.concat(p.toString()).concat("\n");
             }
         }
-        return output;
+        return output.trim();
     }
 }
