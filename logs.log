@@ -1,0 +1,10 @@
+мая 08, 2024 4:36:17 AM org.example.server.utils.Logger log
+INFO: Подключенно: /127.0.0.1:49960
+мая 08, 2024 4:36:31 AM org.example.server.utils.Logger log
+INFO: Подключенно: /127.0.0.1:49993
+мая 08, 2024 4:36:44 AM org.example.server.utils.Logger log
+INFO: Отправлено: org.example.contract.responses.ShowCommandResponse@79da8dc5
+мая 08, 2024 4:36:53 AM org.example.server.utils.Logger log
+INFO: Отправлено: org.example.contract.responses.AddCommandResponse@3c77d488
+мая 08, 2024 4:36:59 AM org.example.server.utils.Logger log
+INFO: Отправлено: org.example.contract.responses.ShowCommandResponse@5ab956d7
