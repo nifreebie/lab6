@@ -1,6 +1,8 @@
 package org.example.server;
 
 import org.example.contract.model.Product;
+import org.example.contract.responses.AddCommandResponse;
+import org.example.contract.utils.StatusCode;
 import org.example.server.collection.CollectionManager;
 import org.example.server.collection.Storage;
 import org.example.server.utils.*;

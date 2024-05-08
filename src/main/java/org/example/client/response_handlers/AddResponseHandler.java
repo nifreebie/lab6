@@ -14,10 +14,6 @@ public class AddResponseHandler implements ResponseHandler{
             output += "Успешно:";
 
         }
-//        else if(addCommandResponse.getStatusCode() == StatusCode._500_SERVER_ERROR){
-//            output += "Ошибка сервера";
-//
-//        }
         return output + addCommandResponse.getMessage();
 
     }

@@ -13,7 +13,6 @@ public class ServerAppContainer {
     private static ServerAppContainer instance;
     private CollectionManager collectionManager;
     private CommandManager commandManager;
-    private final Deque<File> scriptsStack = new ArrayDeque<>();
 
     private ServerAppContainer(){}
 

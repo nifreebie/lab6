@@ -5,7 +5,6 @@ import org.example.client.response_handlers.ResponseHandler;
 import org.example.contract.command.Command;
 import org.example.contract.exceptions.ExtraArgumentException;
 import org.example.contract.exceptions.NoArgumentException;
-import org.example.contract.responses.Response;
 import org.example.contract.utils.BufferedLineReader;
 
 import java.io.IOException;
@@ -51,16 +50,31 @@ public class ConsoleManager {
                 System.out.print('>');
             } catch (InstantiationException | IllegalAccessException | NoSuchMethodException | IOException e) {
                 throw new RuntimeException(e);
-            } catch (InvocationTargetException e) {
+            }catch(NoArgumentException e){
+                System.out.println("У команды должен быть аргумет!");
+                System.out.print('>');
+            }
+            catch(ExtraArgumentException e){
+                System.out.println("У команды не должно быть аргумета!");
+                System.out.print('>');
+            }catch(NumberFormatException e){
+                System.out.println("Неверный формат аргумента!");
+                System.out.print('>');
+            }
+
+            catch (InvocationTargetException e) {
                 Throwable cause = e.getCause();
                 if (cause.getClass().equals(ExtraArgumentException.class)) {
                     System.out.println("У команды не должно быть аргумета!");
+                    System.out.print('>');
                 }
                 if (cause.getClass().equals(NoArgumentException.class)) {
                     System.out.println("У команды должен быть аргумет!");
+                    System.out.print('>');
                 }
                 if (cause.getClass().equals(NumberFormatException.class)) {
                     System.out.println("Неверный формат аргумента!");
+                    System.out.print('>');
                 }
                 System.out.print('>');
             }
