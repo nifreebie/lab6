@@ -12,9 +12,17 @@ public class CommandParser {
         put("update", UpdateCommand.class);
         put("show", ShowCommand.class);
         put("execute_script", ExecuteScriptCommand.class);
+        put("add_if_min", AddIfMinCommand.class);
+        put("clear", ClearCommand.class);
+        put("help", HelpCommand.class);
+        put("info", InfoCommand.class);
+        put("print_descending", PrintDescendingCommand.class);
+        put("print_field_descending_part_number", PrintFieldDescendingPartNumberCommand.class);
+        put("remove_greater", RemoveGreaterCommand.class);
+        put("remove_lower", RemoveLowerCommand.class);
     }};
 
-    public static Command getDTO(String[] str) throws ClassNotFoundException {
+    public static Command getDTO(String[] str){
         return ClientAppContainer.getInstance().getCommandBuilderProvider().provide(parser.get(str[0])).build(str);
     }
 }

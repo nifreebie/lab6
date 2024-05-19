@@ -15,6 +15,15 @@ public class CommandBuilderProviderImpl implements CommandBuilderProvider<Comman
         commandBuilders.put(RemoveByIdCommand.class,new RemoveByIdCommandBuilder());
         commandBuilders.put(ShowCommand.class,new ShowCommandBuilder());
         commandBuilders.put(UpdateCommand.class,new UpdateCommandBuilder());
+        commandBuilders.put(HelpCommand.class, new HelpCommandBuilder());
+        commandBuilders.put(ClearCommand.class, new ClearCommandBuilder());
+        commandBuilders.put(AddIfMinCommand.class, new AddIfMinCommandBuilder());
+        commandBuilders.put(InfoCommand.class, new InfoCommandBuilder());
+        commandBuilders.put(PrintDescendingCommand.class, new PrintDescendingCommandBuilder());
+        commandBuilders.put(PrintFieldDescendingPartNumberCommandBuilder.class, new PrintFieldDescendingPartNumberCommandBuilder());
+        commandBuilders.put(RemoveLowerCommand.class, new RemoveLowerCommandBuilder());
+        commandBuilders.put(RemoveGreaterCommand.class, new RemoveGreaterCommandBuilder());
+
     }
 
     @Override

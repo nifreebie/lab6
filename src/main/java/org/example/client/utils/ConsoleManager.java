@@ -14,7 +14,7 @@ public class ConsoleManager {
         this.sender = sender;
     }
 
-    public void run(){
+    public void run() {
         ClientAppContainer app = ClientAppContainer.getInstance();
         BufferedLineReader bufferedLineReader = app.getBufferedLineReader();
         ResponseHandler responseHandler = new ResponseHandler();
@@ -28,23 +28,22 @@ public class ConsoleManager {
                 System.out.print('>');
                 line = bufferedLineReader.nextLine().trim();
                 str = line.trim().split("\\s+");
-
             }
             try {
                 System.out.println(responseHandler.handleResponse(sender.sendRequest(CommandParser.getDTO(str))));
                 System.out.print('>');
             } catch (IOException e) {
                 throw new RuntimeException(e);
-            } catch (ClassNotFoundException e) {
+            } catch (NullPointerException e) {
                 System.out.println("Команды " + str[0] + " не существует!");
-            }catch(NoArgumentException e){
+                System.out.print('>');
+            } catch (NoArgumentException e) {
                 System.out.println("У команды должен быть аргумет!");
                 System.out.print('>');
-            }
-            catch(ExtraArgumentException e){
+            } catch (ExtraArgumentException e) {
                 System.out.println("У команды не должно быть аргумета!");
                 System.out.print('>');
-            }catch(NumberFormatException e){
+            } catch (NumberFormatException e) {
                 System.out.println("Неверный формат аргумента!");
                 System.out.print('>');
             }
