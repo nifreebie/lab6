@@ -12,8 +12,9 @@ public class Server {
     public static void main(String[] args) throws IOException {
         initServerAppContainer();
         initCollection();
-        RequestHandler requestHandler = new RequestHandler(ServerAppContainer.getInstance().getCommandManager(), new Logger("logs.log"));
-        TCPserver server = new TCPserver(ServerAppContainer.getInstance().getCommandManager(), requestHandler, new Logger("logs.log"));
+        Logger logger = new Logger("logs.log");
+        RequestHandler requestHandler = new RequestHandler(ServerAppContainer.getInstance().getCommandManager(), logger);
+        TCPserver server = new TCPserver(ServerAppContainer.getInstance().getCommandManager(), requestHandler, logger);
         try {
             server.openConnection();
             server.run();

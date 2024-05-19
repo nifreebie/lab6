@@ -1,2 +1,18 @@
-мая 18, 2024 12:13:22 AM org.example.server.utils.Logger log
-INFO: Подключенно: /127.0.0.1:58003
+мая 19, 2024 4:08:28 PM org.example.server.utils.Logger log
+INFO: Подключенно: /127.0.0.1:54054
+мая 19, 2024 4:08:31 PM org.example.server.utils.Logger log
+INFO: Получено: class org.example.contract.command.ShowCommand
+мая 19, 2024 4:08:31 PM org.example.server.utils.Logger log
+INFO: Отправлено: org.example.contract.responses.ResponseWithMessage@212b5695
+мая 19, 2024 4:09:52 PM org.example.server.utils.Logger log
+INFO: Получено: class org.example.contract.command.RemoveByIdCommand
+мая 19, 2024 4:09:52 PM org.example.server.utils.Logger log
+INFO: Отправлено: org.example.contract.responses.ResponseWithMessage@73700b80
+мая 19, 2024 4:10:24 PM org.example.server.utils.Logger log
+INFO: Получено: class org.example.contract.command.RemoveByIdCommand
+мая 19, 2024 4:10:24 PM org.example.server.utils.Logger log
+INFO: Отправлено: org.example.contract.responses.ResponseWithMessage@7e5afaa6
+мая 19, 2024 4:10:27 PM org.example.server.utils.Logger log
+INFO: Получено: class org.example.contract.command.ShowCommand
+мая 19, 2024 4:10:27 PM org.example.server.utils.Logger log
+INFO: Отправлено: org.example.contract.responses.ResponseWithMessage@28f3b248
