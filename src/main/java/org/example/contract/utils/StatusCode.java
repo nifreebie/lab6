@@ -4,7 +4,8 @@ import com.sun.net.httpserver.Authenticator;
 
 public enum StatusCode {
     _200_SUCCESS_,
-    _404_NOT_FOUND,
+    _400_CLIENT_ERROR,
+    _500_SERVER_ERROR
 
 
 }

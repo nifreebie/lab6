@@ -26,14 +26,6 @@ public class TCPclient {
     public void run() throws IOException {
         connect();
     }
-
-    public void openConnection() {
-        try {
-            connect();
-        } catch (IOException e) {
-            throw new ConnectionFailedException();
-        }
-    }
     private void connect() throws IOException {
         this.socket = new Socket();
         socket.connect(new InetSocketAddress(this.host, this.port));

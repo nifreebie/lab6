@@ -8,9 +8,12 @@ import java.nio.ByteBuffer;
 
 public class RequestHandler {
     private final CommandManager commandManager;
+    private final Logger logger;
 
-    public RequestHandler(CommandManager commandManager) {
+    public RequestHandler(CommandManager commandManager, Logger logger) {
+
         this.commandManager = commandManager;
+        this.logger = logger;
     }
     public <T extends Response> T handleRequest(ByteBuffer buffer) {
         T response;
@@ -18,6 +21,7 @@ public class RequestHandler {
         try {
             command = Serializer.deserializeObject(buffer);
             System.out.println("Получено: " + command.getClass());
+            logger.log("Получено: " + command.getClass());
             response = (T) commandManager.executeCommand(command);
             return response;
         } catch (Exception e) {

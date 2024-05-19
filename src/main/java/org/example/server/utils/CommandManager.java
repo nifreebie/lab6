@@ -15,8 +15,6 @@ public class CommandManager {
 //        commands.put(HelpCommand.class, command -> new HelpCommandHandler().handle((HelpCommand) command));
         commands.put(RemoveByIdCommand.class, command -> new RemoveByIdCommandHandler().handle((RemoveByIdCommand) command));
         commands.put(ShowCommand.class, command -> new ShowCommandHandler().handle((ShowCommand) command));
-//        commands.put(SaveCommand.class, command -> new SaveCommandHandler().handle((SaveCommand) command));
-//        commands.put(ExitCommand.class, command -> new ExitCommandHandler().handle((ExitCommand) command));
 //        commands.put(InfoCommand.class, command -> new InfoCommandHandler().handle((InfoCommand) command));
 //        commands.put(ClearCommand.class, command -> new ClearCommandHandler().handle((ClearCommand) command));
         commands.put(UpdateCommand.class, command -> new UpdateCommandHandler().handle((UpdateCommand) command));

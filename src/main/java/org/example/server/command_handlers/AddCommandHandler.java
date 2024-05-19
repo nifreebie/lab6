@@ -1,8 +1,8 @@
 package org.example.server.command_handlers;
 
 import org.example.contract.command.AddCommand;
-import org.example.contract.responses.AddCommandResponse;
 import org.example.contract.responses.Response;
+import org.example.contract.responses.ResponseWithMessage;
 import org.example.contract.utils.StatusCode;
 import org.example.server.collection.CollectionManager;
 import org.example.server.utils.ProductComparator;
@@ -14,7 +14,6 @@ public class AddCommandHandler extends CommandHandler<AddCommand> {
         ProductComparator productComparator = new ProductComparator();
         collectionManager.sort(productComparator);
         collectionManager.save();
-        AddCommandResponse addCommandResponse = new AddCommandResponse(StatusCode._200_SUCCESS_, "продукт добавлен");
-        return addCommandResponse;
+        return new ResponseWithMessage(StatusCode._200_SUCCESS_, "продукт добавлен");
     }
 }

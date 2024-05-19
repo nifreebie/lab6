@@ -1,8 +1,6 @@
 package org.example.server;
 
 import org.example.contract.model.Product;
-import org.example.contract.responses.AddCommandResponse;
-import org.example.contract.utils.StatusCode;
 import org.example.server.collection.CollectionManager;
 import org.example.server.collection.Storage;
 import org.example.server.utils.*;
@@ -14,7 +12,7 @@ public class Server {
     public static void main(String[] args) throws IOException {
         initServerAppContainer();
         initCollection();
-        RequestHandler requestHandler = new RequestHandler(ServerAppContainer.getInstance().getCommandManager());
+        RequestHandler requestHandler = new RequestHandler(ServerAppContainer.getInstance().getCommandManager(), new Logger("logs.log"));
         TCPserver server = new TCPserver(ServerAppContainer.getInstance().getCommandManager(), requestHandler, new Logger("logs.log"));
         try {
             server.openConnection();

@@ -1,7 +1,6 @@
 package org.example.client.utils;
 
 import org.example.client.command_builders.CommandBuilder;
-import org.example.client.response_handlers.ResponseHandler;
 import org.example.contract.command.Command;
 import org.example.contract.exceptions.ExtraArgumentException;
 import org.example.contract.exceptions.NoArgumentException;
@@ -10,6 +9,7 @@ import org.example.contract.utils.BufferedLineReader;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.net.SocketException;
+import java.sql.SQLOutput;
 
 public class ConsoleManager {
     private final Sender sender;
@@ -22,6 +22,7 @@ public class ConsoleManager {
     public void run(){
         ClientAppContainer app = ClientAppContainer.getInstance();
         BufferedLineReader bufferedLineReader = app.getBufferedLineReader();
+        ResponseHandler responseHandler = new ResponseHandler();
         System.out.println("Программа запущена, для получения списка команд введите 'help'");
         System.out.print('>');
         while (bufferedLineReader.hasNextLine()) {
@@ -38,12 +39,7 @@ public class ConsoleManager {
             try {
                 CommandBuilder command_builder = (CommandBuilder) Class.forName("org.example.client.command_builders." + commandName + "CommandBuilder").getConstructor().newInstance();
                 Command command = command_builder.build(str);
-                ResponseHandler responseHandler = (ResponseHandler) Class.forName("org.example.client.response_handlers." + commandName + "ResponseHandler").getConstructor().newInstance();
-                try{
-                    System.out.println(responseHandler.handleResponse(sender.sendRequest(command)));
-                }catch(SocketException e){
-                    System.out.println("Сервер не запущен!");
-                }
+                System.out.println(responseHandler.handleResponse(sender.sendRequest(command)));
                 System.out.print('>');
             } catch (NoClassDefFoundError | ClassNotFoundException e) {
                 System.out.println("Команды " + str[0] + " не существует!");

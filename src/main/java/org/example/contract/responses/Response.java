@@ -9,6 +9,7 @@ import java.io.Serializable;
 @Getter
 @Setter
 @AllArgsConstructor
-public class Response implements Serializable {
-    protected StatusCode statusCode;
+public abstract class Response implements Serializable {
+    private StatusCode statusCode;
+
 }

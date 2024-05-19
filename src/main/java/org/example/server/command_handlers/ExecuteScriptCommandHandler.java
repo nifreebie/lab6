@@ -2,7 +2,7 @@ package org.example.server.command_handlers;
 
 import org.example.contract.command.Command;
 import org.example.contract.command.ExecuteScriptCommand;
-import org.example.contract.responses.ExecuteScriptCommandResponse;
+import org.example.contract.responses.ExecuteScriptResponse;
 import org.example.contract.responses.Response;
 import org.example.contract.utils.StatusCode;
 
@@ -16,6 +16,6 @@ public class ExecuteScriptCommandHandler extends CommandHandler<ExecuteScriptCom
         for(Command c: command.getCommandList()){
             responseList.add(this.app.getCommandManager().executeCommand(c));
         }
-        return new ExecuteScriptCommandResponse(StatusCode._200_SUCCESS_,responseList);
+        return new ExecuteScriptResponse(StatusCode._200_SUCCESS_,responseList);
     }
 }
