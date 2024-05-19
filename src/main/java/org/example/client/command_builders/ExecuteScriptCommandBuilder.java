@@ -2,6 +2,7 @@ package org.example.client.command_builders;
 
 import lombok.NoArgsConstructor;
 import org.example.client.utils.ClientAppContainer;
+import org.example.client.utils.CommandParser;
 import org.example.client.utils.ConsoleManager;
 import org.example.contract.command.Command;
 import org.example.contract.command.ExecuteScriptCommand;
@@ -44,15 +45,10 @@ public class ExecuteScriptCommandBuilder implements CommandBuilder {
                                 strScript = line.trim().split("\\s+");
 
                             }
-                            String commandName = ConsoleManager.parseToCommandName(strScript[0]);
                             try {
-                                CommandBuilder command_builder = (CommandBuilder) Class.forName("org.example.client.command_builders." + commandName + "CommandBuilder").getConstructor().newInstance();
-                                Command command = command_builder.build(strScript);
-                                commandList.add(command);
-                            }catch (NoClassDefFoundError | ClassNotFoundException e) {
-                                System.out.println("Команды " + strScript[0] + " не существует!");
-                            } catch (InstantiationException | IllegalAccessException | NoSuchMethodException e) {
-                                throw new RuntimeException(e);
+                                commandList.add(CommandParser.getDTO(strScript));
+                            } catch (NullPointerException | ClassNotFoundException e) {
+                                System.out.println("Команды " + str[0] + " не существует!!");
                             }catch(NoArgumentException e){
                                 System.out.println("У команды должен быть аргумет!");
                             }
@@ -60,17 +56,6 @@ public class ExecuteScriptCommandBuilder implements CommandBuilder {
                                 System.out.println("У команды не должно быть аргумета!");
                             }catch(NumberFormatException e){
                                 System.out.println("Неверный формат аргумента!");
-                            } catch (InvocationTargetException e) {
-                                Throwable cause = e.getCause();
-                                if (cause.getClass().equals(ExtraArgumentException.class)) {
-                                    System.out.println("У команды не должно быть аргумета!");
-                                }
-                                if (cause.getClass().equals(NoArgumentException.class)) {
-                                    System.out.println("У команды должен быть аргумет!");
-                                }
-                                if (cause.getClass().equals(NumberFormatException.class)) {
-                                    System.out.println("Неверный формат аргумента!");
-                                }
                             }
                         }catch(StopExecuteScriptException e){
                             System.out.println("Ошибка при исполнении скрипта!");

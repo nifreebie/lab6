@@ -2,6 +2,7 @@ package org.example.client.utils;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.example.client.command_builders.CommandBuilder;
 import org.example.contract.utils.BufferedLineReader;
 
 import java.io.File;
@@ -14,6 +15,7 @@ public class ClientAppContainer {
     private static ClientAppContainer instance;
     private BufferedLineReader bufferedLineReader;
     private final Deque<File> scriptsStack = new ArrayDeque<>();
+    private CommandBuilderProvider<CommandBuilder> commandBuilderProvider = new CommandBuilderProviderImpl();
 
     private ClientAppContainer(){}
 
